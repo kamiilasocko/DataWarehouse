@@ -11,8 +11,8 @@
   DTS:LocaleID="1045"
   DTS:ObjectName="package"
   DTS:PackageType="5"
-  DTS:VersionBuild="105"
-  DTS:VersionGUID="{1D9DC124-319B-4DCB-A4AA-32B9B7502449}">
+  DTS:VersionBuild="106"
+  DTS:VersionGUID="{231E7C28-E92C-4231-BFD6-3AC7FD3C2F7E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -11013,67 +11013,67 @@ where [refTable].[transactionID] = ?</property>
               name="Lookup Match Output"
               startId="Package\Fact\Lookup.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Fact.Paths[Merge Join Output1]"
+              refId="Package\Fact.Paths[Merge Join Output]"
               endId="Package\Fact\Sort.Inputs[Sort Input]"
               name="Merge Join Output"
               startId="Package\Fact\Merge Join 3.Outputs[Merge Join Output]" />
             <path
-              refId="Package\Fact.Paths[Merge Join Output2]"
+              refId="Package\Fact.Paths[Merge Join Output1]"
               endId="Package\Fact\Derived Column.Inputs[Derived Column Input]"
               name="Merge Join Output"
               startId="Package\Fact\Merge Join.Outputs[Merge Join Output]" />
             <path
-              refId="Package\Fact.Paths[Merge Join Output]"
+              refId="Package\Fact.Paths[Merge Join Output2]"
               endId="Package\Fact\Lookup.Inputs[Lookup Input]"
               name="Merge Join Output"
               startId="Package\Fact\Merge Join 2.Outputs[Merge Join Output]" />
             <path
-              refId="Package\Fact.Paths[OLE DB Source Output2]"
-              endId="Package\Fact\Data Conversion.Inputs[Data Conversion Input]"
+              refId="Package\Fact.Paths[OLE DB Source Output3]"
+              endId="Package\Fact\Sort 3.Inputs[Sort Input]"
               name="OLE DB Source Output"
-              startId="Package\Fact\DIMCustomers.Outputs[OLE DB Source Output]" />
+              startId="Package\Fact\DIMCarriers.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Fact.Paths[OLE DB Source Output2]"
+              endId="Package\Fact\Sort 1.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Fact\sales.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Fact.Paths[OLE DB Source Output1]"
               endId="Package\Fact\Sort 5.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\Fact\DIMDate.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Fact.Paths[OLE DB Source Output3]"
-              endId="Package\Fact\Sort 1.Inputs[Sort Input]"
-              name="OLE DB Source Output"
-              startId="Package\Fact\sales.Outputs[OLE DB Source Output]" />
-            <path
               refId="Package\Fact.Paths[OLE DB Source Output]"
-              endId="Package\Fact\Sort 3.Inputs[Sort Input]"
+              endId="Package\Fact\Data Conversion.Inputs[Data Conversion Input]"
               name="OLE DB Source Output"
-              startId="Package\Fact\DIMCarriers.Outputs[OLE DB Source Output]" />
+              startId="Package\Fact\DIMCustomers.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Fact.Paths[Sort Output1]"
+              refId="Package\Fact.Paths[Sort Output]"
               endId="Package\Fact\Merge Join 2.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\Fact\Sort 5.Outputs[Sort Output]" />
             <path
-              refId="Package\Fact.Paths[Sort Output]"
+              refId="Package\Fact.Paths[Sort Output1]"
               endId="Package\Fact\Merge Join 2.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\Fact\Sort 4.Outputs[Sort Output]" />
             <path
-              refId="Package\Fact.Paths[Sort Output5]"
+              refId="Package\Fact.Paths[Sort Output2]"
               endId="Package\Fact\Merge Join.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\Fact\Sort 3.Outputs[Sort Output]" />
             <path
-              refId="Package\Fact.Paths[Sort Output2]"
+              refId="Package\Fact.Paths[Sort Output3]"
               endId="Package\Fact\Merge Join 3.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\Fact\Sort 1.Outputs[Sort Output]" />
             <path
-              refId="Package\Fact.Paths[Sort Output3]"
+              refId="Package\Fact.Paths[Sort Output4]"
               endId="Package\Fact\Merge Join 3.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\Fact\Sort 6.Outputs[Sort Output]" />
             <path
-              refId="Package\Fact.Paths[Sort Output4]"
+              refId="Package\Fact.Paths[Sort Output5]"
               endId="Package\Fact\Merge Join.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\Fact\Sort.Outputs[Sort Output]" />
@@ -14582,6 +14582,10 @@ where [refTable].[carrier_id] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="155,42"
+          Id="Package\Data Flow Task"
+          TopLeft="457,233" />
+        <NodeLayout
           Size="169,42"
           Id="Package\DIMCarriers"
           TopLeft="1009.42857434798,43.941182079612" />
@@ -14779,26 +14783,349 @@ where [refTable].[carrier_id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="155,42"
-          Id="Package\Data Flow Task"
-          TopLeft="457,233" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="99,42"
+          Id="Package\Data Flow Task\Sort"
+          TopLeft="264,170" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Data Flow Task\Merge Join"
+          TopLeft="339,321" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Data Flow Task\Sort 1"
+          TopLeft="517,207" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Data Flow Task\DIMCustomers"
+          TopLeft="510,36" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="332,403" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Data Flow Task\Data Conversion"
+          TopLeft="508,132" />
+        <NodeLayout
+          Size="105,42"
+          Id="Package\Data Flow Task\sales"
+          TopLeft="244,41" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output1]"
+          TopLeft="571,249">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-144.666666666667,72"
+              Start="0,0"
+              End="-144.666666666667,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.6864784546805" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.6864784546805"
+                    Point2="0,42.6864784546805"
+                    Point3="-4,42.6864784546805" />
+                  <mssgle:LineSegment
+                    End="-140.666666666667,42.6864784546805" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-140.666666666667,42.6864784546805"
+                    Point2="-144.666666666667,42.6864784546805"
+                    Point3="-144.666666666667,46.6864784546805" />
+                  <mssgle:LineSegment
+                    End="-144.666666666667,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output]"
+          TopLeft="313.5,212">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="71.1666666666667,109"
+              Start="0,0"
+              End="71.1666666666667,101.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.6225854383358" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,60.6225854383358"
+                    Point2="0,64.6225854383358"
+                    Point3="4,64.6225854383358" />
+                  <mssgle:LineSegment
+                    End="67.1666666666667,64.6225854383358" />
+                  <mssgle:CubicBezierSegment
+                    Point1="67.1666666666667,64.6225854383358"
+                    Point2="71.1666666666667,64.6225854383358"
+                    Point3="71.1666666666667,68.6225854383358" />
+                  <mssgle:LineSegment
+                    End="71.1666666666667,101.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+          TopLeft="296.5,83">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17,87"
+              Start="0,0"
+              End="17,79.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.5"
+                    Point2="0,43.5"
+                    Point3="4,43.5" />
+                  <mssgle:LineSegment
+                    End="13,43.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13,43.5"
+                    Point2="17,43.5"
+                    Point3="17,47.5" />
+                  <mssgle:LineSegment
+                    End="17,79.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="587.25,78">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Merge Join Output]"
+          TopLeft="405.5,363">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15,40"
+              Start="0,0"
+              End="15,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="4,20" />
+                  <mssgle:LineSegment
+                    End="11,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11,20"
+                    Point2="15,20"
+                    Point3="15,24" />
+                  <mssgle:LineSegment
+                    End="15,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="588.5,174">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-17.5,33"
+              Start="0,0"
+              End="-17.5,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.5"
+                    Point2="0,16.5"
+                    Point3="-4,16.5" />
+                  <mssgle:LineSegment
+                    End="-13.5,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13.5,16.5"
+                    Point2="-17.5,16.5"
+                    Point3="-17.5,20.5" />
+                  <mssgle:LineSegment
+                    End="-17.5,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DIMCustomers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\sales">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\DIMCarriers">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="160,42"
-          Id="Package\DIMCarriers\Carriers_staging"
-          TopLeft="406.5,16.4999999999998" />
+          Size="174,42"
+          Id="Package\DIMCarriers\Insert Destination 1"
+          TopLeft="399.5,628.5" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\DIMCarriers\Derived Column 2"
+          TopLeft="258,220.5" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\DIMCarriers\OLE DB Command 2"
+          TopLeft="243.5,322.5" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\DIMCarriers\OLE DB Command 3"
+          TopLeft="547.5,220.5" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\DIMCarriers\Derived Column 3"
+          TopLeft="403,526.5" />
+        <NodeLayout
+          Size="132,42"
+          Id="Package\DIMCarriers\Union All 1"
+          TopLeft="420.5,424.5" />
         <NodeLayout
           Size="225,42"
           Id="Package\DIMCarriers\Slowly Changing Dimension 1"
           TopLeft="374,118.5" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\DIMCarriers\Carriers_staging"
+          TopLeft="406.5,16.4999999999998" />
+        <EdgeLayout
+          Id="Package\DIMCarriers.Paths[Union All Output 1]"
+          TopLeft="486.5,466.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DIMCarriers.Paths[OLE DB Source Output]"
           TopLeft="486.5,58.4999999999998">
@@ -14818,79 +15145,47 @@ where [refTable].[carrier_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="167,42"
-          Id="Package\DIMCarriers\Derived Column 2"
-          TopLeft="258,220.5" />
         <EdgeLayout
-          Id="Package\DIMCarriers.Paths[Historical Attribute Inserts Output]"
-          TopLeft="432.25,160.5">
+          Id="Package\DIMCarriers.Paths[OLE DB Command Output]"
+          TopLeft="334.5,364.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-90.75,60"
+              EndConnector="131.333333333333,60"
               Start="0,0"
-              End="-90.75,52.5">
+              End="131.333333333333,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.4685212298682" />
+                    End="0,31.5688622754491" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.4685212298682"
-                    Point2="0,20.4685212298682"
-                    Point3="-4,20.4685212298682" />
+                    Point1="0,31.5688622754491"
+                    Point2="0,35.5688622754491"
+                    Point3="4,35.5688622754491" />
                   <mssgle:LineSegment
-                    End="-86.75,20.4685212298682" />
+                    End="127.333333333333,35.5688622754491" />
                   <mssgle:CubicBezierSegment
-                    Point1="-86.75,20.4685212298682"
-                    Point2="-90.75,20.4685212298682"
-                    Point3="-90.75,24.4685212298682" />
+                    Point1="127.333333333333,35.5688622754491"
+                    Point2="131.333333333333,35.5688622754491"
+                    Point3="131.333333333333,39.5688622754491" />
                   <mssgle:LineSegment
-                    End="-90.75,52.5" />
+                    End="131.333333333333,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-120.43138671875,25.4685212298682,150.1127734375,11.609375"
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="182,42"
-          Id="Package\DIMCarriers\OLE DB Command 2"
-          TopLeft="243.5,322.5" />
-        <EdgeLayout
-          Id="Package\DIMCarriers.Paths[Derived Column Output]"
-          TopLeft="338,262.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="132,42"
-          Id="Package\DIMCarriers\Union All 1"
-          TopLeft="420.5,424.5" />
         <EdgeLayout
           Id="Package\DIMCarriers.Paths[New Output]"
           TopLeft="486.5,160.5">
@@ -14928,96 +15223,6 @@ where [refTable].[carrier_id] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DIMCarriers.Paths[OLE DB Command Output]"
-          TopLeft="334.5,364.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="131.333333333333,60"
-              Start="0,0"
-              End="131.333333333333,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.5688622754491" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.5688622754491"
-                    Point2="0,35.5688622754491"
-                    Point3="4,35.5688622754491" />
-                  <mssgle:LineSegment
-                    End="127.333333333333,35.5688622754491" />
-                  <mssgle:CubicBezierSegment
-                    Point1="127.333333333333,35.5688622754491"
-                    Point2="131.333333333333,35.5688622754491"
-                    Point3="131.333333333333,39.5688622754491" />
-                  <mssgle:LineSegment
-                    End="131.333333333333,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="167,42"
-          Id="Package\DIMCarriers\Derived Column 3"
-          TopLeft="403,526.5" />
-        <EdgeLayout
-          Id="Package\DIMCarriers.Paths[Union All Output 1]"
-          TopLeft="486.5,466.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="174,42"
-          Id="Package\DIMCarriers\Insert Destination 1"
-          TopLeft="399.5,628.5" />
-        <EdgeLayout
-          Id="Package\DIMCarriers.Paths[Derived Column Output1]"
-          TopLeft="486.5,568.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="182,42"
-          Id="Package\DIMCarriers\OLE DB Command 3"
-          TopLeft="547.5,220.5" />
-        <EdgeLayout
           Id="Package\DIMCarriers.Paths[Inferred Member Updates Output]"
           TopLeft="540.75,160.5">
           <EdgeLayout.Curve>
@@ -15053,25 +15258,45 @@ where [refTable].[carrier_id] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\DIMCustomers">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="174,42"
-          Id="Package\DIMCustomers\Customers_staging"
-          TopLeft="153,5.5" />
-        <NodeLayout
-          Size="216,42"
-          Id="Package\DIMCustomers\Slowly Changing Dimension"
-          TopLeft="132,107.5" />
         <EdgeLayout
-          Id="Package\DIMCustomers.Paths[OLE DB Source Output]"
-          TopLeft="240,47.5">
+          Id="Package\DIMCarriers.Paths[Historical Attribute Inserts Output]"
+          TopLeft="432.25,160.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-90.75,60"
+              Start="0,0"
+              End="-90.75,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.4685212298682" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.4685212298682"
+                    Point2="0,20.4685212298682"
+                    Point3="-4,20.4685212298682" />
+                  <mssgle:LineSegment
+                    End="-86.75,20.4685212298682" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-86.75,20.4685212298682"
+                    Point2="-90.75,20.4685212298682"
+                    Point3="-90.75,24.4685212298682" />
+                  <mssgle:LineSegment
+                    End="-90.75,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-120.43138671875,25.4685212298682,150.1127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIMCarriers.Paths[Derived Column Output1]"
+          TopLeft="486.5,568.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15088,127 +15313,157 @@ where [refTable].[carrier_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="158,42"
-          Id="Package\DIMCustomers\Derived Column"
-          TopLeft="21,209.5" />
         <EdgeLayout
-          Id="Package\DIMCustomers.Paths[Historical Attribute Inserts Output]"
-          TopLeft="177.6,149.5">
+          Id="Package\DIMCarriers.Paths[Derived Column Output]"
+          TopLeft="338,262.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-77.6,60.0000000000001"
+              EndConnector="0,60"
               Start="0,0"
-              End="-77.6,52.5000000000001">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.8125" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.8125"
-                    Point2="0,17.8125"
-                    Point3="-4,17.8125" />
-                  <mssgle:LineSegment
-                    End="-73.6,17.8125" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-73.6,17.8125"
-                    Point2="-77.6,17.8125"
-                    Point3="-77.6,21.8125" />
-                  <mssgle:LineSegment
-                    End="-77.6,52.5000000000001" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-113.85638671875,22.8125,150.1127734375,11.609375"
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIMCarriers\Slowly Changing Dimension 1">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{9AD5FA20-DF4F-4813-85A9-C14301E8D300}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[DIMCarriers]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Carriers_staging.Outputs[OLE DB Source Output].Columns[address]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;address&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Carriers_staging.Outputs[OLE DB Source Output].Columns[carrier_id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;carrier_id&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Carriers_staging.Outputs[OLE DB Source Output].Columns[carrier_name]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;carrier_name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Carriers_staging.Outputs[OLE DB Source Output].Columns[contact_person]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;contact_person&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Carriers_staging.Outputs[OLE DB Source Output].Columns[tax_id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;tax_id&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 2&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 2&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Union All 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 3&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 3&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;true&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn&gt;eff_start_date&lt;/StartDateColumn&gt;
+  &lt;EndDateColumn&gt;eff_end_date&lt;/EndDateColumn&gt;
+  &lt;DateVariable&gt;System::CreationDate&lt;/DateVariable&gt;
+  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIMCarriers\Carriers_staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DIMCustomers">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="173,42"
           Id="Package\DIMCustomers\OLE DB Command"
           TopLeft="5.5,311.5" />
-        <EdgeLayout
-          Id="Package\DIMCustomers.Paths[Derived Column Output]"
-          TopLeft="100,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-8,60"
-              Start="0,0"
-              End="-8,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="-4,30" />
-                  <mssgle:LineSegment
-                    End="-4,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-4,30"
-                    Point2="-8,30"
-                    Point3="-8,34" />
-                  <mssgle:LineSegment
-                    End="-8,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="182,42"
+          Id="Package\DIMCustomers\OLE DB Command 1"
+          TopLeft="301,209.5" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\DIMCustomers\Derived Column 1"
+          TopLeft="156.5,515.5" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\DIMCustomers\Insert Destination"
+          TopLeft="157.5,617.5" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DIMCustomers\Derived Column"
+          TopLeft="21,209.5" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\DIMCustomers\Slowly Changing Dimension"
+          TopLeft="132,107.5" />
         <NodeLayout
           Size="123,42"
           Id="Package\DIMCustomers\Union All"
           TopLeft="178.5,413.5" />
-        <EdgeLayout
-          Id="Package\DIMCustomers.Paths[New Output]"
-          TopLeft="219.2,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="39.9666666666666,264"
-              Start="0,0"
-              End="39.9666666666666,256.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,138.507066070781" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,138.507066070781"
-                    Point2="0,142.507066070781"
-                    Point3="4,142.507066070781" />
-                  <mssgle:LineSegment
-                    End="35.9666666666666,142.507066070781" />
-                  <mssgle:CubicBezierSegment
-                    Point1="35.9666666666666,142.507066070781"
-                    Point2="39.9666666666666,142.507066070781"
-                    Point3="39.9666666666666,146.507066070781" />
-                  <mssgle:LineSegment
-                    End="39.9666666666666,256.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-7.10805338541668,147.507066070781,54.1827734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="174,42"
+          Id="Package\DIMCustomers\Customers_staging"
+          TopLeft="153,5.5" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\DIMCustomers\OLE DB Command 2"
+          TopLeft="544,209.5" />
         <EdgeLayout
           Id="Package\DIMCustomers.Paths[OLE DB Command Output]"
           TopLeft="92,353.5">
@@ -15243,62 +15498,42 @@ where [refTable].[carrier_id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="167,42"
-          Id="Package\DIMCustomers\Derived Column 1"
-          TopLeft="156.5,515.5" />
         <EdgeLayout
-          Id="Package\DIMCustomers.Paths[Union All Output 1]"
-          TopLeft="240,455.5">
+          Id="Package\DIMCustomers.Paths[New Output]"
+          TopLeft="219.2,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="39.9666666666666,264"
               Start="0,0"
-              End="0,52.5">
+              End="39.9666666666666,256.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,138.507066070781" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,138.507066070781"
+                    Point2="0,142.507066070781"
+                    Point3="4,142.507066070781" />
+                  <mssgle:LineSegment
+                    End="35.9666666666666,142.507066070781" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35.9666666666666,142.507066070781"
+                    Point2="39.9666666666666,142.507066070781"
+                    Point3="39.9666666666666,146.507066070781" />
+                  <mssgle:LineSegment
+                    End="39.9666666666666,256.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-7.1080533854167,147.507066070781,54.1827734375,11.43359375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="165,42"
-          Id="Package\DIMCustomers\Insert Destination"
-          TopLeft="157.5,617.5" />
-        <EdgeLayout
-          Id="Package\DIMCustomers.Paths[Derived Column Output1]"
-          TopLeft="240,557.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="182,42"
-          Id="Package\DIMCustomers\OLE DB Command 1"
-          TopLeft="301,209.5" />
         <EdgeLayout
           Id="Package\DIMCustomers.Paths[Inferred Member Updates Output]"
           TopLeft="260.8,149.5">
@@ -15335,10 +15570,98 @@ where [refTable].[carrier_id] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="182,42"
-          Id="Package\DIMCustomers\OLE DB Command 2"
-          TopLeft="544,209.5" />
+        <EdgeLayout
+          Id="Package\DIMCustomers.Paths[Historical Attribute Inserts Output]"
+          TopLeft="177.6,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-77.6,60.0000000000001"
+              Start="0,0"
+              End="-77.6,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.8125" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.8125"
+                    Point2="0,17.8125"
+                    Point3="-4,17.8125" />
+                  <mssgle:LineSegment
+                    End="-73.6,17.8125" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-73.6,17.8125"
+                    Point2="-77.6,17.8125"
+                    Point3="-77.6,21.8125" />
+                  <mssgle:LineSegment
+                    End="-77.6,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-113.85638671875,22.8125,150.1127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIMCustomers.Paths[Derived Column Output1]"
+          TopLeft="240,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIMCustomers.Paths[Derived Column Output]"
+          TopLeft="100,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8,60"
+              Start="0,0"
+              End="-8,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-4,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4,30"
+                    Point2="-8,30"
+                    Point3="-8,34" />
+                  <mssgle:LineSegment
+                    End="-8,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DIMCustomers.Paths[Changing Attribute Updates Output]"
           TopLeft="302.4,149.5">
@@ -15375,18 +15698,229 @@ where [refTable].[carrier_id] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIMCustomers.Paths[Union All Output 1]"
+          TopLeft="240,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIMCustomers.Paths[OLE DB Source Output]"
+          TopLeft="240,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIMCustomers\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{9AD5FA20-DF4F-4813-85A9-C14301E8D300}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[DIMCustomers]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Customers_staging.Outputs[OLE DB Source Output].Columns[city]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;city&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Customers_staging.Outputs[OLE DB Source Output].Columns[country]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;country&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Customers_staging.Outputs[OLE DB Source Output].Columns[email]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;email&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Customers_staging.Outputs[OLE DB Source Output].Columns[first_name]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;first_name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Customers_staging.Outputs[OLE DB Source Output].Columns[id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;id&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Customers_staging.Outputs[OLE DB Source Output].Columns[last_name]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;last_name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Customers_staging.Outputs[OLE DB Source Output].Columns[phone]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;phone&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Customers_staging.Outputs[OLE DB Source Output].Columns[state]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;state&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Customers_staging.Outputs[OLE DB Source Output].Columns[street]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;street&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Union All&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 2&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;true&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn&gt;eff_start_date&lt;/StartDateColumn&gt;
+  &lt;EndDateColumn&gt;eff_end_date&lt;/EndDateColumn&gt;
+  &lt;DateVariable&gt;System::ContainerStartTime&lt;/DateVariable&gt;
+  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIMCustomers\Customers_staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Fact">
     <LayoutInfo>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="142,42"
+          Id="Package\Fact\Merge Join 3"
+          TopLeft="225,254" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Fact\Data Conversion"
+          TopLeft="314,82" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\Fact\DIMDate"
+          TopLeft="622,508" />
+        <NodeLayout
+          Size="128,42"
+          Id="Package\Fact\FactSales"
+          TopLeft="357,971" />
+        <NodeLayout
+          Size="105,42"
+          Id="Package\Fact\sales"
+          TopLeft="53,8" />
+        <NodeLayout
+          Size="115,42"
+          Id="Package\Fact\Lookup"
+          TopLeft="524,801" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Fact\Merge Join"
+          TopLeft="309,397" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Fact\FactSalesUpdate"
+          TopLeft="692,978" />
+        <NodeLayout
+          Size="99,42"
+          Id="Package\Fact\Sort"
+          TopLeft="215,343" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Fact\DIMCustomers"
+          TopLeft="330,7" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Fact\Sort 6"
+          TopLeft="310,154" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Fact\DIMCarriers"
+          TopLeft="451,258" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Fact\Sort 1"
+          TopLeft="108,147" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Fact\Sort 5"
+          TopLeft="637,609" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Fact\Merge Join 2"
+          TopLeft="508,730" />
+        <NodeLayout
           Size="106,42"
           Id="Package\Fact\Sort 3"
           TopLeft="459,347" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Fact\Conditional Split"
+          TopLeft="515,900" />
         <NodeLayout
           Size="158,42"
           Id="Package\Fact\Derived Column"
@@ -15395,20 +15929,236 @@ where [refTable].[carrier_id] = ?</property>
           Size="108,42"
           Id="Package\Fact\Sort 4"
           TopLeft="397,644" />
-        <NodeLayout
-          Size="108,42"
-          Id="Package\Fact\Sort 5"
-          TopLeft="637,609" />
-        <NodeLayout
-          Size="136,42"
-          Id="Package\Fact\DIMDate"
-          TopLeft="622,508" />
-        <NodeLayout
-          Size="153,42"
-          Id="Package\Fact\DIMCarriers"
-          TopLeft="451,258" />
         <EdgeLayout
-          Id="Package\Fact.Paths[OLE DB Source Output]"
+          Id="Package\Fact.Paths[update]"
+          TopLeft="619.666666666667,942">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="153.833333333333,36"
+              Start="0,0"
+              End="153.833333333333,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.6151930261519" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.6151930261519"
+                    Point2="0,14.6151930261519"
+                    Point3="4,14.6151930261519" />
+                  <mssgle:LineSegment
+                    End="149.833333333333,14.6151930261519" />
+                  <mssgle:CubicBezierSegment
+                    Point1="149.833333333333,14.6151930261519"
+                    Point2="153.833333333333,14.6151930261519"
+                    Point3="153.833333333333,18.6151930261519" />
+                  <mssgle:LineSegment
+                    End="153.833333333333,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="61.1141666666665,19.6151930261519,31.605,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact.Paths[Sort Output5]"
+          TopLeft="314,364">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="40.6666666666667,33"
+              Start="0,0"
+              End="40.6666666666667,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="36.6666666666667,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="36.6666666666667,0"
+                    Point2="40.6666666666667,0"
+                    Point3="40.6666666666667,4" />
+                  <mssgle:LineSegment
+                    End="40.6666666666667,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact.Paths[Sort Output4]"
+          TopLeft="364,196">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-45.6666666666666,58"
+              Start="0,0"
+              End="-45.6666666666666,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.4122562674095" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.4122562674095"
+                    Point2="0,34.4122562674095"
+                    Point3="-4,34.4122562674095" />
+                  <mssgle:LineSegment
+                    End="-41.6666666666666,34.4122562674095" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-41.6666666666666,34.4122562674095"
+                    Point2="-45.6666666666666,34.4122562674095"
+                    Point3="-45.6666666666666,38.4122562674095" />
+                  <mssgle:LineSegment
+                    End="-45.6666666666666,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact.Paths[Sort Output3]"
+          TopLeft="162,189">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="111.666666666667,65"
+              Start="0,0"
+              End="111.666666666667,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5654596100279" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.5654596100279"
+                    Point2="0,38.5654596100279"
+                    Point3="4,38.5654596100279" />
+                  <mssgle:LineSegment
+                    End="107.666666666667,38.5654596100279" />
+                  <mssgle:CubicBezierSegment
+                    Point1="107.666666666667,38.5654596100279"
+                    Point2="111.666666666667,38.5654596100279"
+                    Point3="111.666666666667,42.5654596100279" />
+                  <mssgle:LineSegment
+                    End="111.666666666667,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact.Paths[Sort Output2]"
+          TopLeft="459,368">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-62.6666666666667,29"
+              Start="0,0"
+              End="-62.6666666666667,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-58.6666666666667,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-58.6666666666667,0"
+                    Point2="-62.6666666666667,0"
+                    Point3="-62.6666666666667,4" />
+                  <mssgle:LineSegment
+                    End="-62.6666666666667,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact.Paths[Sort Output1]"
+          TopLeft="451,686">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="105.666666666667,44"
+              Start="0,0"
+              End="105.666666666667,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.1058495821727" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.1058495821727"
+                    Point2="0,26.1058495821727"
+                    Point3="4,26.1058495821727" />
+                  <mssgle:LineSegment
+                    End="101.666666666667,26.1058495821727" />
+                  <mssgle:CubicBezierSegment
+                    Point1="101.666666666667,26.1058495821727"
+                    Point2="105.666666666667,26.1058495821727"
+                    Point3="105.666666666667,30.1058495821727" />
+                  <mssgle:LineSegment
+                    End="105.666666666667,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact.Paths[Sort Output]"
+          TopLeft="691,651">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-89.6666666666666,79"
+              Start="0,0"
+              End="-89.6666666666666,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.8718662952647" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.8718662952647"
+                    Point2="0,46.8718662952647"
+                    Point3="-4,46.8718662952647" />
+                  <mssgle:LineSegment
+                    End="-85.6666666666666,46.8718662952647" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-85.6666666666666,46.8718662952647"
+                    Point2="-89.6666666666666,46.8718662952647"
+                    Point3="-89.6666666666666,50.8718662952647" />
+                  <mssgle:LineSegment
+                    End="-89.6666666666666,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact.Paths[OLE DB Source Output3]"
           TopLeft="527.5,300">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -15439,6 +16189,258 @@ where [refTable].[carrier_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact.Paths[OLE DB Source Output2]"
+          TopLeft="105.5,50">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="56.5,97"
+              Start="0,0"
+              End="56.5,89.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.5"
+                    Point2="0,48.5"
+                    Point3="4,48.5" />
+                  <mssgle:LineSegment
+                    End="52.5,48.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="52.5,48.5"
+                    Point2="56.5,48.5"
+                    Point3="56.5,52.5" />
+                  <mssgle:LineSegment
+                    End="56.5,89.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact.Paths[OLE DB Source Output1]"
+          TopLeft="690.5,550">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact.Paths[OLE DB Source Output]"
+          TopLeft="406,49">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-11.5,33"
+              Start="0,0"
+              End="-11.5,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.5"
+                    Point2="0,16.5"
+                    Point3="-4,16.5" />
+                  <mssgle:LineSegment
+                    End="-7.5,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-7.5,16.5"
+                    Point2="-11.5,16.5"
+                    Point3="-11.5,20.5" />
+                  <mssgle:LineSegment
+                    End="-11.5,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact.Paths[Merge Join Output2]"
+          TopLeft="580.25,772">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact.Paths[Merge Join Output1]"
+          TopLeft="375.5,439">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53.5,70"
+              Start="0,0"
+              End="53.5,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31"
+                    Point2="0,35"
+                    Point3="4,35" />
+                  <mssgle:LineSegment
+                    End="49.5,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49.5,35"
+                    Point2="53.5,35"
+                    Point3="53.5,39" />
+                  <mssgle:LineSegment
+                    End="53.5,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact.Paths[Merge Join Output]"
+          TopLeft="296,296">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-31.5,47"
+              Start="0,0"
+              End="-31.5,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5"
+                    Point2="0,23.5"
+                    Point3="-4,23.5" />
+                  <mssgle:LineSegment
+                    End="-27.5,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-27.5,23.5"
+                    Point2="-31.5,23.5"
+                    Point3="-31.5,27.5" />
+                  <mssgle:LineSegment
+                    End="-31.5,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact.Paths[Lookup Match Output]"
+          TopLeft="581.5,843">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13,57"
+              Start="0,0"
+              End="13,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5"
+                    Point2="0,28.5"
+                    Point3="4,28.5" />
+                  <mssgle:LineSegment
+                    End="9,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9,28.5"
+                    Point2="13,28.5"
+                    Point3="13,32.5" />
+                  <mssgle:LineSegment
+                    End="13,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-41.69138671875,33.5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact.Paths[insert]"
+          TopLeft="569.333333333333,942">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-148.333333333333,29"
+              Start="0,0"
+              End="-148.333333333333,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.77334993773354" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.77334993773354"
+                    Point2="0,11.7733499377335"
+                    Point3="-4,11.7733499377335" />
+                  <mssgle:LineSegment
+                    End="-144.333333333333,11.7733499377335" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-144.333333333333,11.7733499377335"
+                    Point2="-148.333333333333,11.7733499377335"
+                    Point3="-148.333333333333,15.7733499377335" />
+                  <mssgle:LineSegment
+                    End="-148.333333333333,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-87.1166471354165,16.7733499377335,25.8999609375,9.451171875"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -15476,300 +16478,6 @@ where [refTable].[carrier_id] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Fact.Paths[OLE DB Source Output1]"
-          TopLeft="690.5,550">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59"
-              Start="0,0"
-              End="0,51.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,51.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="142,42"
-          Id="Package\Fact\Merge Join 2"
-          TopLeft="508,730" />
-        <EdgeLayout
-          Id="Package\Fact.Paths[Sort Output]"
-          TopLeft="451,686">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="105.666666666667,44"
-              Start="0,0"
-              End="105.666666666667,36.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.1058495821727" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.1058495821727"
-                    Point2="0,26.1058495821727"
-                    Point3="4,26.1058495821727" />
-                  <mssgle:LineSegment
-                    End="101.666666666667,26.1058495821727" />
-                  <mssgle:CubicBezierSegment
-                    Point1="101.666666666667,26.1058495821727"
-                    Point2="105.666666666667,26.1058495821727"
-                    Point3="105.666666666667,30.1058495821727" />
-                  <mssgle:LineSegment
-                    End="105.666666666667,36.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fact.Paths[Sort Output1]"
-          TopLeft="691,651">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-89.6666666666666,79"
-              Start="0,0"
-              End="-89.6666666666666,71.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,42.8718662952647" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,42.8718662952647"
-                    Point2="0,46.8718662952647"
-                    Point3="-4,46.8718662952647" />
-                  <mssgle:LineSegment
-                    End="-85.6666666666666,46.8718662952647" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-85.6666666666666,46.8718662952647"
-                    Point2="-89.6666666666666,46.8718662952647"
-                    Point3="-89.6666666666666,50.8718662952647" />
-                  <mssgle:LineSegment
-                    End="-89.6666666666666,71.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="115,42"
-          Id="Package\Fact\Lookup"
-          TopLeft="524,801" />
-        <EdgeLayout
-          Id="Package\Fact.Paths[Merge Join Output]"
-          TopLeft="580.25,772">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,29"
-              Start="0,0"
-              End="0,21.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="159,42"
-          Id="Package\Fact\Conditional Split"
-          TopLeft="515,900" />
-        <EdgeLayout
-          Id="Package\Fact.Paths[Lookup Match Output]"
-          TopLeft="581.5,843">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="13,57"
-              Start="0,0"
-              End="13,49.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.5"
-                    Point2="0,28.5"
-                    Point3="4,28.5" />
-                  <mssgle:LineSegment
-                    End="9,28.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="9,28.5"
-                    Point2="13,28.5"
-                    Point3="13,32.5" />
-                  <mssgle:LineSegment
-                    End="13,49.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-41.69138671875,33.5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="128,42"
-          Id="Package\Fact\FactSales"
-          TopLeft="357,971" />
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Fact\FactSalesUpdate"
-          TopLeft="692,978" />
-        <EdgeLayout
-          Id="Package\Fact.Paths[insert]"
-          TopLeft="569.333333333333,942">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-148.333333333333,29"
-              Start="0,0"
-              End="-148.333333333333,21.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,7.77334993773354" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,7.77334993773354"
-                    Point2="0,11.7733499377335"
-                    Point3="-4,11.7733499377335" />
-                  <mssgle:LineSegment
-                    End="-144.333333333333,11.7733499377335" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-144.333333333333,11.7733499377335"
-                    Point2="-148.333333333333,11.7733499377335"
-                    Point3="-148.333333333333,15.7733499377335" />
-                  <mssgle:LineSegment
-                    End="-148.333333333333,21.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-87.1166471354167,16.7733499377335,25.8999609375,9.451171875"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fact.Paths[update]"
-          TopLeft="619.666666666667,942">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="153.833333333333,36"
-              Start="0,0"
-              End="153.833333333333,28.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,10.6151930261519" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10.6151930261519"
-                    Point2="0,14.6151930261519"
-                    Point3="4,14.6151930261519" />
-                  <mssgle:LineSegment
-                    End="149.833333333333,14.6151930261519" />
-                  <mssgle:CubicBezierSegment
-                    Point1="149.833333333333,14.6151930261519"
-                    Point2="153.833333333333,14.6151930261519"
-                    Point3="153.833333333333,18.6151930261519" />
-                  <mssgle:LineSegment
-                    End="153.833333333333,28.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="61.1141666666667,19.6151930261519,31.605,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="105,42"
-          Id="Package\Fact\sales"
-          TopLeft="53,8" />
-        <NodeLayout
-          Size="152,42"
-          Id="Package\Fact\DIMCustomers"
-          TopLeft="330,7" />
-        <NodeLayout
-          Size="108,42"
-          Id="Package\Fact\Sort 1"
-          TopLeft="108,147" />
-        <NodeLayout
-          Size="161,42"
-          Id="Package\Fact\Data Conversion"
-          TopLeft="314,82" />
-        <EdgeLayout
-          Id="Package\Fact.Paths[OLE DB Source Output2]"
-          TopLeft="406,49">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-11.5,33"
-              Start="0,0"
-              End="-11.5,25.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.5"
-                    Point2="0,16.5"
-                    Point3="-4,16.5" />
-                  <mssgle:LineSegment
-                    End="-7.5,16.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-7.5,16.5"
-                    Point2="-11.5,16.5"
-                    Point3="-11.5,20.5" />
-                  <mssgle:LineSegment
-                    End="-11.5,25.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="108,42"
-          Id="Package\Fact\Sort 6"
-          TopLeft="310,154" />
-        <EdgeLayout
           Id="Package\Fact.Paths[Data Conversion Output]"
           TopLeft="394.5,124">
           <EdgeLayout.Curve>
@@ -15803,249 +16511,86 @@ where [refTable].[carrier_id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="142,42"
-          Id="Package\Fact\Merge Join 3"
-          TopLeft="225,254" />
-        <EdgeLayout
-          Id="Package\Fact.Paths[Sort Output2]"
-          TopLeft="162,189">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="111.666666666667,65"
-              Start="0,0"
-              End="111.666666666667,57.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.5654596100279" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,34.5654596100279"
-                    Point2="0,38.5654596100279"
-                    Point3="4,38.5654596100279" />
-                  <mssgle:LineSegment
-                    End="107.666666666667,38.5654596100279" />
-                  <mssgle:CubicBezierSegment
-                    Point1="107.666666666667,38.5654596100279"
-                    Point2="111.666666666667,38.5654596100279"
-                    Point3="111.666666666667,42.5654596100279" />
-                  <mssgle:LineSegment
-                    End="111.666666666667,57.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fact.Paths[Sort Output3]"
-          TopLeft="364,196">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-45.6666666666666,58"
-              Start="0,0"
-              End="-45.6666666666666,50.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.4122562674095" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30.4122562674095"
-                    Point2="0,34.4122562674095"
-                    Point3="-4,34.4122562674095" />
-                  <mssgle:LineSegment
-                    End="-41.6666666666666,34.4122562674095" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-41.6666666666666,34.4122562674095"
-                    Point2="-45.6666666666666,34.4122562674095"
-                    Point3="-45.6666666666666,38.4122562674095" />
-                  <mssgle:LineSegment
-                    End="-45.6666666666666,50.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fact.Paths[OLE DB Source Output3]"
-          TopLeft="105.5,50">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="56.5,97"
-              Start="0,0"
-              End="56.5,89.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,44.5"
-                    Point2="0,48.5"
-                    Point3="4,48.5" />
-                  <mssgle:LineSegment
-                    End="52.5,48.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="52.5,48.5"
-                    Point2="56.5,48.5"
-                    Point3="56.5,52.5" />
-                  <mssgle:LineSegment
-                    End="56.5,89.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="99,42"
-          Id="Package\Fact\Sort"
-          TopLeft="215,343" />
-        <EdgeLayout
-          Id="Package\Fact.Paths[Merge Join Output1]"
-          TopLeft="296,296">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-31.5,47"
-              Start="0,0"
-              End="-31.5,39.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.5"
-                    Point2="0,23.5"
-                    Point3="-4,23.5" />
-                  <mssgle:LineSegment
-                    End="-27.5,23.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-27.5,23.5"
-                    Point2="-31.5,23.5"
-                    Point3="-31.5,27.5" />
-                  <mssgle:LineSegment
-                    End="-31.5,39.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="133,42"
-          Id="Package\Fact\Merge Join"
-          TopLeft="309,397" />
-        <EdgeLayout
-          Id="Package\Fact.Paths[Sort Output4]"
-          TopLeft="314,364">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="40.6666666666667,33"
-              Start="0,0"
-              End="40.6666666666667,25.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="36.6666666666667,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="36.6666666666667,0"
-                    Point2="40.6666666666667,0"
-                    Point3="40.6666666666667,4" />
-                  <mssgle:LineSegment
-                    End="40.6666666666667,25.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fact.Paths[Sort Output5]"
-          TopLeft="459,368">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-62.6666666666667,29"
-              Start="0,0"
-              End="-62.6666666666667,21.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-58.6666666666667,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-58.6666666666667,0"
-                    Point2="-62.6666666666667,0"
-                    Point3="-62.6666666666667,4" />
-                  <mssgle:LineSegment
-                    End="-62.6666666666667,21.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fact.Paths[Merge Join Output2]"
-          TopLeft="375.5,439">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="53.5,70"
-              Start="0,0"
-              End="53.5,62.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31"
-                    Point2="0,35"
-                    Point3="4,35" />
-                  <mssgle:LineSegment
-                    End="49.5,35" />
-                  <mssgle:CubicBezierSegment
-                    Point1="49.5,35"
-                    Point2="53.5,35"
-                    Point3="53.5,39" />
-                  <mssgle:LineSegment
-                    End="53.5,62.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Fact\DIMDate">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact\FactSales">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact\sales">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[FactSales]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact\FactSalesUpdate">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact\DIMCustomers">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -16655,529 +17200,6 @@ where [refTable].[carrier_id] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DIMCustomers\Customers_staging">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DIMCarriers\Carriers_staging">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DIMCarriers\Slowly Changing Dimension 1">
-    <Properties>
-      <Property>
-        <Name>SCDMetadata</Name>
-        <Value
-          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionID&gt;{9AD5FA20-DF4F-4813-85A9-C14301E8D300}&lt;/ConnectionID&gt;
-  &lt;TableName&gt;[dbo].[DIMCarriers]&lt;/TableName&gt;
-  &lt;InputToColumnsCollection&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Carriers_staging.Outputs[OLE DB Source Output].Columns[address]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;address&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Carriers_staging.Outputs[OLE DB Source Output].Columns[carrier_id]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;carrier_id&lt;/ColumnName&gt;
-      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Carriers_staging.Outputs[OLE DB Source Output].Columns[carrier_name]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;carrier_name&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Carriers_staging.Outputs[OLE DB Source Output].Columns[contact_person]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;contact_person&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Carriers_staging.Outputs[OLE DB Source Output].Columns[tax_id]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;tax_id&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-  &lt;/InputToColumnsCollection&gt;
-  &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 2&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 2&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Union All 1&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 3&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination 1&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 3&lt;/anyType&gt;
-  &lt;/GeneratedComponentsIdentificationStrings&gt;
-  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
-  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
-  &lt;UseStartEndDate&gt;true&lt;/UseStartEndDate&gt;
-  &lt;CurrentIndicatorColumn /&gt;
-  &lt;InferredIndicatorColumn /&gt;
-  &lt;ValueCurrent /&gt;
-  &lt;ValueExpired /&gt;
-  &lt;StartDateColumn&gt;eff_start_date&lt;/StartDateColumn&gt;
-  &lt;EndDateColumn&gt;eff_end_date&lt;/EndDateColumn&gt;
-  &lt;DateVariable&gt;System::CreationDate&lt;/DateVariable&gt;
-  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
-&lt;/SCDWizardMetadata&gt;</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fact\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[FactSales]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fact\FactSales">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fact\FactSalesUpdate">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fact\sales">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fact\DIMCustomers">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Data Flow Task">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="105,42"
-          Id="Package\Data Flow Task\sales"
-          TopLeft="244,41" />
-        <NodeLayout
-          Size="152,42"
-          Id="Package\Data Flow Task\DIMCustomers"
-          TopLeft="510,36" />
-        <NodeLayout
-          Size="161,42"
-          Id="Package\Data Flow Task\Data Conversion"
-          TopLeft="508,132" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="587.25,78">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,54"
-              Start="0,0"
-              End="0,46.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="99,42"
-          Id="Package\Data Flow Task\Sort"
-          TopLeft="264,170" />
-        <NodeLayout
-          Size="108,42"
-          Id="Package\Data Flow Task\Sort 1"
-          TopLeft="517,207" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Data Conversion Output]"
-          TopLeft="588.5,174">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-17.5,33"
-              Start="0,0"
-              End="-17.5,25.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.5"
-                    Point2="0,16.5"
-                    Point3="-4,16.5" />
-                  <mssgle:LineSegment
-                    End="-13.5,16.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-13.5,16.5"
-                    Point2="-17.5,16.5"
-                    Point3="-17.5,20.5" />
-                  <mssgle:LineSegment
-                    End="-17.5,25.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="133,42"
-          Id="Package\Data Flow Task\Merge Join"
-          TopLeft="339,321" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Sort Output]"
-          TopLeft="313.5,212">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="71.1666666666667,109"
-              Start="0,0"
-              End="71.1666666666667,101.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,60.6225854383358" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,60.6225854383358"
-                    Point2="0,64.6225854383358"
-                    Point3="4,64.6225854383358" />
-                  <mssgle:LineSegment
-                    End="67.1666666666667,64.6225854383358" />
-                  <mssgle:CubicBezierSegment
-                    Point1="67.1666666666667,64.6225854383358"
-                    Point2="71.1666666666667,64.6225854383358"
-                    Point3="71.1666666666667,68.6225854383358" />
-                  <mssgle:LineSegment
-                    End="71.1666666666667,101.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Sort Output1]"
-          TopLeft="571,249">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-144.666666666667,72"
-              Start="0,0"
-              End="-144.666666666667,64.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.6864784546805" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,38.6864784546805"
-                    Point2="0,42.6864784546805"
-                    Point3="-4,42.6864784546805" />
-                  <mssgle:LineSegment
-                    End="-140.666666666667,42.6864784546805" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-140.666666666667,42.6864784546805"
-                    Point2="-144.666666666667,42.6864784546805"
-                    Point3="-144.666666666667,46.6864784546805" />
-                  <mssgle:LineSegment
-                    End="-144.666666666667,64.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output1]"
-          TopLeft="296.5,83">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="17,87"
-              Start="0,0"
-              End="17,79.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,39.5"
-                    Point2="0,43.5"
-                    Point3="4,43.5" />
-                  <mssgle:LineSegment
-                    End="13,43.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13,43.5"
-                    Point2="17,43.5"
-                    Point3="17,47.5" />
-                  <mssgle:LineSegment
-                    End="17,79.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="332,403" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Merge Join Output]"
-          TopLeft="405.5,363">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="15,40"
-              Start="0,0"
-              End="15,32.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16"
-                    Point2="0,20"
-                    Point3="4,20" />
-                  <mssgle:LineSegment
-                    End="11,20" />
-                  <mssgle:CubicBezierSegment
-                    Point1="11,20"
-                    Point2="15,20"
-                    Point3="15,24" />
-                  <mssgle:LineSegment
-                    End="15,32.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\sales">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\DIMCustomers">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DIMCustomers\Slowly Changing Dimension">
-    <Properties>
-      <Property>
-        <Name>SCDMetadata</Name>
-        <Value
-          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionID&gt;{9AD5FA20-DF4F-4813-85A9-C14301E8D300}&lt;/ConnectionID&gt;
-  &lt;TableName&gt;[dbo].[DIMCustomers]&lt;/TableName&gt;
-  &lt;InputToColumnsCollection&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Customers_staging.Outputs[OLE DB Source Output].Columns[city]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;city&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Customers_staging.Outputs[OLE DB Source Output].Columns[country]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;country&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Customers_staging.Outputs[OLE DB Source Output].Columns[email]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;email&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Customers_staging.Outputs[OLE DB Source Output].Columns[first_name]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;first_name&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Customers_staging.Outputs[OLE DB Source Output].Columns[id]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;id&lt;/ColumnName&gt;
-      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Customers_staging.Outputs[OLE DB Source Output].Columns[last_name]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;last_name&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Customers_staging.Outputs[OLE DB Source Output].Columns[phone]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;phone&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Customers_staging.Outputs[OLE DB Source Output].Columns[state]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;state&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;Customers_staging.Outputs[OLE DB Source Output].Columns[street]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;street&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-  &lt;/InputToColumnsCollection&gt;
-  &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Derived Column&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Union All&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 2&lt;/anyType&gt;
-  &lt;/GeneratedComponentsIdentificationStrings&gt;
-  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
-  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
-  &lt;UseStartEndDate&gt;true&lt;/UseStartEndDate&gt;
-  &lt;CurrentIndicatorColumn /&gt;
-  &lt;InferredIndicatorColumn /&gt;
-  &lt;ValueCurrent /&gt;
-  &lt;ValueExpired /&gt;
-  &lt;StartDateColumn&gt;eff_start_date&lt;/StartDateColumn&gt;
-  &lt;EndDateColumn&gt;eff_end_date&lt;/EndDateColumn&gt;
-  &lt;DateVariable&gt;System::ContainerStartTime&lt;/DateVariable&gt;
-  &lt;EnableInferredSupport&gt;true&lt;/EnableInferredSupport&gt;
-&lt;/SCDWizardMetadata&gt;</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
